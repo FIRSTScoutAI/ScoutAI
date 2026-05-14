@@ -242,13 +242,12 @@ export function AIBriefingPreview() {
           transition={{ duration: 0.55, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
           className="order-2 lg:pt-4"
         >
-          <p className="section-label">Ask Anything</p>
+          <p className="section-label">AI Analysis</p>
           <h3 className="font-outfit mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-            Instant team brief simulation
+            Quick intel, when you need it
           </h3>
           <p className="mt-4 max-w-md text-base leading-relaxed text-slate-400">
-            See how we support your strategist: open a team profile, trigger AI Brief, wait for generation,
-            and get a structured report with introduction, alliance fit, and risk callouts.
+            Want a read on a team? We&apos;ll pull their historical stats and previous seasonal event performance and summarize it so you&apos;ll know what to expect. We&apos;ll also roll in your scouts&apos; notes to help you figure out the best alliance picks. Our AI gets retrained on the new game manual every season too, so it actually understands the current meta. Just remember that AI gets things wrong, so treat it as extra confidence, not the final word.
           </p>
         </motion.div>
         </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { unstable_noStore as noStore } from "next/cache";
+import pkg from "../../package.json";
 import { createClient as createAdminClient, type SupabaseClient } from "@supabase/supabase-js";
 import { Check, GaugeCircle } from "lucide-react";
 import { HeroAnimations } from "./hero-animations";
@@ -25,19 +26,19 @@ const STEPS: Step[] = [
     label: "Step 01",
     title: "Capture",
     description:
-      "Your scouts submit structured match notes quickly from phones with low-friction tap controls.",
+      "Your scouts fill out a quick match note on their phones after each round. Takes about a minute.",
   },
   {
     label: "Step 02",
     title: "Contextualize",
     description:
-      "We layer your scouting signal with event data so you can see a complete performance picture.",
+      "We pull in your event's TBA and Statbotics data and stitch it together with what your scouts saw.",
   },
   {
     label: "Step 03",
     title: "Execute",
     description:
-      "Your drive team gets focused briefs and pick recommendations in time for real decisions.",
+      "Before your next match, your drive team gets a brief with alliance suggestions and strategy notes. No more scrambling.",
   },
 ];
 
@@ -99,12 +100,10 @@ export default async function Home() {
 
       <section className="relative overflow-hidden pt-20">
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-36 left-1/2 h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-teal-400/10 blur-[140px]" />
-          <div className="absolute top-24 right-[16%] h-[320px] w-[320px] rounded-full bg-cyan-400/10 blur-[120px]" />
-          <div className="absolute bottom-0 left-[8%] h-[260px] w-[260px] rounded-full bg-teal-300/10 blur-[120px]" />
+          <div className="absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-teal-400/7 blur-[160px]" />
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 py-24 md:py-28 lg:py-32">
-          <HeroAnimations />
+        <div className="relative mx-auto max-w-6xl px-4 py-24 md:py-28 lg:py-32">
+          <HeroAnimations version={pkg.version} />
         </div>
 
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#03070a] to-transparent" />
@@ -121,13 +120,12 @@ export default async function Home() {
         <div className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center">
-            <p className="section-label">Why switch</p>
+            <p className="section-label">why though</p>
             <h2 className="font-outfit mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
-              Strategy is not a spreadsheet problem
+              Give your scouts somewhere to start.
             </h2>
             <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-slate-400 md:text-lg">
-              Most tools stop at data collection. We help you turn raw scouting signal into
-              match-ready decisions with clear priorities and confidence.
+              Most teams cobble something together every season. PitPilot is ready out of the box so your scouts can just... scout!
             </p>
           </div>
 
@@ -143,18 +141,18 @@ export default async function Home() {
               <tbody className="divide-y divide-white/10">
                 <tr className="transition-colors duration-300 hover:bg-white/[0.03]">
                   <td className="px-6 py-4 font-semibold text-white">TBA / Statbotics</td>
-                  <td className="px-6 py-4 text-slate-300">Publishes schedule, results, rankings, and EPA context.</td>
-                  <td className="px-6 py-4 text-slate-500">Doesn&apos;t turn that data into your next-match plan.</td>
+                  <td className="px-6 py-4 text-slate-300">Publishes schedule, results, EPA stats, rankings.</td>
+                  <td className="px-6 py-4 text-slate-500">Doesn&apos;t turn any of that into a match plan.</td>
                 </tr>
                 <tr className="transition-colors duration-300 hover:bg-white/[0.03]">
                   <td className="px-6 py-4 font-semibold text-white">Forms / sheets workflows</td>
-                  <td className="px-6 py-4 text-slate-300">Collects team notes and subjective observations.</td>
-                  <td className="px-6 py-4 text-slate-500">You still have to convert it into strategy under time pressure.</td>
+                  <td className="px-6 py-4 text-slate-300">Collects your team&apos;s match observations.</td>
+                  <td className="px-6 py-4 text-slate-500">Someone still has to make sense of it all under time pressure.</td>
                 </tr>
                 <tr className="transition-colors duration-300 hover:bg-white/[0.03]">
                   <td className="px-6 py-4 font-semibold text-white">PitPilot</td>
-                  <td className="px-6 py-4 text-slate-300">We combine both + generate tactical pre-match guidance.</td>
-                  <td className="px-6 py-4 text-slate-500">We don&apos;t replace your scouts; we amplify them.</td>
+                  <td className="px-6 py-4 text-slate-300">Combines both with even more features!</td>
+                  <td className="px-6 py-4 text-slate-500">Still needs your scouts to actually watch the matches :)</td>
                 </tr>
               </tbody>
             </table>
@@ -167,7 +165,7 @@ export default async function Home() {
         <div className="mx-auto max-w-4xl px-4">
           <div className="text-center">
             <h2 className="font-outfit text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
-              One clean scouting loop
+              It&apos;s pretty straightforward
             </h2>
           </div>
 
@@ -203,11 +201,10 @@ export default async function Home() {
           <div className="text-center">
             <p className="section-label">Pricing</p>
             <h2 className="font-outfit mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
-              Community-first, team-friendly
+              Free forever, pretty much
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-400 md:text-base">
-              Free gives you everything you need to scout real events. Supporter gives your
-              team more AI headroom and helps us keep PitPilot fast and reliable for everyone.
+              While being a supporter won&apos;t give you any big benefits, as all our features are free forever, you get to help cover the hosting cost to make sure it&apos;ll remain free forever :)
             </p>
           </div>
 
@@ -215,7 +212,7 @@ export default async function Home() {
             <div className="flex h-full w-full max-w-[360px] flex-col rounded-2xl border border-white/10 bg-[#0f1115]/80 p-8 backdrop-blur-md transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-teal-300/30 hover:shadow-[0_0_34px_-18px_rgba(67,217,162,0.34)]">
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-400">Free</p>
               <p className="font-outfit mt-4 text-5xl font-bold">$0</p>
-              <p className="mt-1 text-sm text-slate-500">forever</p>
+              <p className="mt-1 text-sm text-slate-500">and always will be</p>
               <div className="my-6 h-px bg-white/10" />
               <ul className="flex-1 space-y-3 text-sm text-slate-300">
                 <PricingItem included>Unlimited scouting entries</PricingItem>
@@ -244,7 +241,7 @@ export default async function Home() {
                 <PricingItem included>Everything in Free</PricingItem>
                 <PricingItem included>Higher AI usage limits</PricingItem>
                 <PricingItem included>Priority model capacity</PricingItem>
-                <PricingItem included>Directly supports platform reliability</PricingItem>
+                <PricingItem included>Helps us keep the lights on</PricingItem>
               </ul>
               <Link
                 href="/signup"
@@ -253,37 +250,6 @@ export default async function Home() {
                 Upgrade to Supporter
               </Link>
             </div>
-          </div>
-        </div>
-      </MotionSection>
-
-      <MotionSection className="relative overflow-hidden py-24">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-300/12 blur-[130px]" />
-        </div>
-        <div className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-
-        <div className="relative mx-auto max-w-2xl px-4 text-center">
-          <h2 className="font-outfit text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
-            Ready for cleaner decisions at your next event?
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-sm text-slate-400 md:text-base">
-            We built PitPilot to reduce match-day chaos so your drive team can
-            act with confidence.
-          </p>
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
-              href="/signup"
-              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-teal-400 to-cyan-400 px-8 py-3 text-sm font-semibold text-[#042116] shadow-[0_0_30px_-12px_rgba(67,217,162,0.8)] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:brightness-110 hover:shadow-[0_0_36px_-10px_rgba(67,217,162,0.88)]"
-            >
-              Create free account
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-white/15 px-8 py-3 text-sm font-semibold text-slate-200 transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-teal-300/50 hover:bg-teal-300/10"
-            >
-              Talk to us
-            </Link>
           </div>
         </div>
       </MotionSection>

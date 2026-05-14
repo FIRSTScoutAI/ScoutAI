@@ -10,11 +10,10 @@ export function DashboardPreview() {
         <div className="text-center">
           <p className="section-label">See it in action</p>
           <h2 className="font-outfit mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
-            Interface built for match tempo
+            Built for the pit, not a desktop
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-400">
-            We keep your flow clear with assignment controls, quick brief access, and
-            high-contrast team grids built for noisy stands.
+            Assign scouts, pull up briefs, and check match status from your phone. Works offline too, so bad event wifi isn&apos;t your problem anymore.
           </p>
         </div>
 

@@ -6,52 +6,43 @@ import { motion } from "framer-motion";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-export function HeroAnimations() {
+export function HeroAnimations({ version }: { version: string }) {
   return (
     <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
-      <div>
+      <div className="text-right">
         <motion.h1
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.08, ease: EASE }}
-          className="font-outfit max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl xl:text-[4.2rem]"
+          className="font-outfit text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl"
         >
-          Run your event scouting
-          <span className="block bg-gradient-to-r from-teal-200 via-cyan-300 to-teal-400 bg-clip-text text-transparent">
-            like a systems team.
-          </span>
+          <span className="text-white">Pit</span><span className="text-teal-400">Pilot</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.16, ease: EASE }}
-          className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300 md:text-lg"
+          className="mt-5 text-base leading-relaxed text-slate-400"
         >
-          We blend your live scouting observations with public event context so your
-          drive team gets fast, structured, actionable match strategy.
+          A mobile, offline friendly, real-time<br />
+          strategic scouting platform for FRC teams.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.24, ease: EASE }}
-          className="mt-9 flex flex-col gap-3 sm:flex-row"
+          className="mt-8 flex items-center justify-end gap-4"
         >
+          <span className="font-mono text-xs text-slate-500">v{version}</span>
           <Link
             href="/signup"
-            className="inline-flex min-h-11 items-center justify-center rounded-full bg-gradient-to-r from-teal-300 to-cyan-300 px-7 py-3 text-sm font-semibold text-[#042116] shadow-[0_0_32px_-12px_rgba(67,217,162,0.85)] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:brightness-110 hover:shadow-[0_0_38px_-10px_rgba(67,217,162,0.92)]"
+            className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-teal-300 to-cyan-300 px-5 py-2 text-sm font-semibold text-[#042116] shadow-[0_0_28px_-12px_rgba(67,217,162,0.8)] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:brightness-110"
           >
             Start free
           </Link>
-          <a
-            href="#how-it-works"
-            className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/20 bg-white/5 px-7 py-3 text-sm font-semibold text-slate-200 transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-teal-300/40 hover:bg-teal-300/10"
-          >
-            See how it works
-          </a>
         </motion.div>
-
       </div>
 
       <motion.div
